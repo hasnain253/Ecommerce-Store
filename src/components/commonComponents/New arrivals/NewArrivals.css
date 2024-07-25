@@ -1,0 +1,138 @@
+.arrivalContainer {
+  height: 768px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  opacity: 0px;
+}
+.imageLayoutSection {
+  display: flex;
+  gap: 30px;
+}
+
+.leftsideLayout {
+  width: 570px;
+  height: 600px;
+  background: #000000;
+  border-radius: 4px;
+}
+
+.arrival-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 242px;
+  height: 122px;
+  margin-top: -70px;
+  margin-left: 30px;
+  gap: 16px;
+}
+.playStation {
+  color: #fff;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+  text-align: left;
+}
+.ps5P {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+}
+
+.shopNowbtn {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  border: none;
+  color: #fff;
+  background-color: transparent;
+  cursor: pointer;
+  border-bottom: 1px solid #fff;
+}
+
+.rightSideLayout {
+  width: 570px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.upperCard {
+  width: 570px;
+  height: 284px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+}
+.uppercard-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.upperCard-content {
+  width: 255px;
+  height: 122px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  opacity: 0px;
+  margin-top: -150px;
+  padding-left: 20px;
+}
+
+.lowerCardparts {
+  display: flex;
+  gap: 30px;
+  width: 570px;
+  height: 284px;
+}
+.firstone {
+  background-color: #000000;
+  width: 270px;
+  height: 284px;
+  border-radius: 4px;
+}
+.firstOne-img img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  margin: auto;
+}
+.loweOne-content {
+  margin-top: -65px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 20px;
+}
+.second {
+  background-color: #000000;
+  width: 270px;
+  height: 284px;
+  border-radius: 4px;
+}
+.secondOne-img img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  margin: auto;
+}
+.secondOne-content {
+  margin-top: -65px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 20px;
+}

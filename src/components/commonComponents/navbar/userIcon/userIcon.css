@@ -1,0 +1,56 @@
+.userIconContainer {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.userIcon {
+  display: block;
+  width: 35px;
+  height: 35px;
+  transition: background-color 0.3s;
+}
+
+.userIcon.active {
+  background-color: #db4444;
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+}
+
+.cardSection {
+  width: 224px;
+  height: 208px;
+  padding: 18px 12px 10px 20px;
+  border-radius: 4px;
+  background-image: linear-gradient(to top left, #787379, #9e6ea4);
+  position: absolute;
+  top: 170%;
+  left: -664%;
+  margin-top: 10px;
+  z-index: 1000;
+}
+
+.cardSection ul {
+  text-decoration: none;
+  list-style: none;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.cardSection ul li {
+  display: flex;
+  gap: 16px;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.cardSection ul li img {
+  width: 24px;
+  height: 24px;
+  padding: 2.5px 3px 2.5px 3px;
+}

@@ -1,0 +1,123 @@
+.main-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1200px;
+  gap: 100px;
+  margin: auto;
+}
+/* Logo Section */
+.logo {
+  width: 118px;
+  height: 24px;
+}
+h2 {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+  text-align: left;
+}
+/* Links Section */
+.navlinks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+}
+.link-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 367px;
+  height: 24px;
+  gap: 48px;
+  opacity: 0px;
+  list-style: none;
+  cursor: pointer;
+}
+.links-list li {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  color: #0000;
+}
+.link-list li a {
+  text-decoration: none;
+  color: #000000;
+}
+/* Search section */
+.searchBar {
+  width: Hug (243px) px;
+  padding: 7px 12px;
+  gap: 10px;
+  border-radius: 4px 0px 0px 0px;
+  opacity: 0px;
+  position: relative;
+}
+.searchBar img {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+}
+/* Nav Icons */
+.site-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+.site-icons img {
+  width: 20px;
+  height: 17px;
+  top: 7px;
+  left: 6px;
+  gap: 0px;
+  border: 1.5px 0px 0px 0px;
+  opacity: 0px;
+}
+
+.link-list hr {
+  border: none;
+  width: 80%;
+  height: 3px;
+  border-radius: 10px;
+  background-color: #ff4141;
+  margin: auto;
+}
+
+.nav-cart-count {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -20px;
+  margin-left: -25px;
+  border-radius: 11px;
+  font-size: 12px;
+  background: #ff4141;
+  color: #ffffff;
+}
+.site-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.wishlist-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.wishlist-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}

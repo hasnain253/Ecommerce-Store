@@ -1,0 +1,6 @@
+.section4-div {
+  width: 1170px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}

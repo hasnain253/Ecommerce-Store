@@ -1,0 +1,276 @@
+.Section1-div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.vertical {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.vl {
+  width: 20px;
+  height: 40px;
+  border-radius: 4px;
+  border-left: 20px solid #db4444;
+}
+.vertical span {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+  color: #db4444;
+}
+/* Timer section */
+
+.sales-timer {
+  display: flex;
+  gap: 90px;
+}
+
+.timer {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+.sales-text {
+  font-family: Inter;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 48px;
+  letter-spacing: 0.04em;
+  text-align: left;
+}
+.timer label {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+}
+.timer p {
+  width: 44px;
+  height: 30px;
+
+  font-family: Inter;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: 0.04em;
+  text-align: left;
+}
+.pagination-icon {
+  display: flex;
+  width: 100px;
+  height: 46px;
+  gap: 8px;
+  margin: auto;
+  margin-right: 40px;
+  cursor: pointer;
+}
+.sales-timer.no-timer {
+  justify-content: flex-end;
+}
+
+/* card-section */
+.cards-parent {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  position: relative;
+}
+.cards-parent.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 53px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.icons-image-section {
+  background-color: #f5f5f5;
+  width: 270px;
+  height: 250px;
+  border-radius: 4px;
+}
+.icons-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.discountText {
+  background-color: #db4444;
+  width: 55px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  padding: 4px 12px 4px 12px;
+  gap: 10px;
+  border-radius: 4px;
+  position: absolute;
+  left: 12px;
+  top: 12px;
+}
+.discountText span {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: left;
+  color: #f5f5f5;
+}
+.heart-eye-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 34px;
+  height: 76px;
+  position: absolute;
+  top: 12px;
+  left: 224px;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.deleteIcon {
+  width: 34px;
+  height: 76px;
+  position: absolute;
+  top: 15px;
+  left: 224px;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.main-img {
+  width: 190px;
+  height: 180px;
+  position: relative;
+  top: 35px;
+  left: 40px;
+  padding: 14px 9px 14px 9px;
+  gap: 0px;
+  opacity: 0px;
+  cursor: pointer;
+}
+/* outside-card */
+
+.card-heading {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  width: 270px;
+  white-space: normal;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  overflow: hidden;
+}
+.discounted-price {
+  width: 85px;
+  height: 24px;
+  display: flex;
+  gap: 12px;
+}
+.discounted-price span {
+  padding-left: 5px;
+}
+.old-price {
+  color: rgb(105, 102, 102);
+  text-decoration: line-through;
+}
+
+.viewProduct {
+  display: flex;
+  justify-content: center;
+}
+.FlasSales {
+  width: 234px;
+  height: 56px;
+  padding: 16px 48px 16px 48px;
+  display: flex;
+  gap: 10px;
+  border-radius: 4px;
+  color: #f5f5f5;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  background-color: #db4444;
+  cursor: pointer;
+  border: none;
+}
+
+.sectionCommonbtn {
+  width: 159px;
+  height: 56px;
+  padding: 16px 48px 16px 48px;
+  display: flex;
+  gap: 10px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #db4444;
+  border: none;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.radio-button input {
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+}
+
+.addToCart {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  width: 270px;
+  height: 41px;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 0px 0px 4px 4px;
+  margin-top: 30px;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 100;
+}
+.cards:hover .addToCart {
+  opacity: 1;
+}
+.addToCart.clicked {
+  background-color: #9f09f7;
+}
+
+.stars {
+  display: flex;
+  direction: row;
+}
+
+.star {
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.2s;
+}
+
+.star.filled {
+  color: #ffc107;
+}

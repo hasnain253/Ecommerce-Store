@@ -1,0 +1,47 @@
+.section2-div {
+  width: 1170px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.miniCard {
+  display: flex;
+  justify-content: space-between;
+}
+.categoryCard {
+  border: 1px solid #0000004d;
+  width: 170px;
+  height: 145px;
+  padding: 25px 39px 24px 40px;
+  border-radius: 4px;
+  border: 1px 0px 0px 0px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+.categoryCard img {
+  width: 56px;
+  height: 56px;
+  border: 2px;
+  transition: filter 0.3s;
+}
+.categoryCard p {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
+.categoryCard:hover {
+  background-color: #db4444;
+}
+.categoryCard:hover img {
+  color: #fff;
+  filter: grayscale(100%);
+}
+.categoryCard:hover p {
+  color: #fff;
+}

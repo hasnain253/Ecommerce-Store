@@ -1,0 +1,41 @@
+/* .section6-div {
+  width: 100%;
+} */
+.our-mainProducts {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.cards-parent.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.products-radio-input {
+  display: flex;
+  width: 48px;
+  height: 20px;
+  gap: 8px;
+}
+.badge {
+  width: 51px;
+  height: 26px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 12px 4px 12px;
+  gap: 10px;
+  border-radius: 4px;
+  background-color: #00ff66;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.badge span {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: left;
+}

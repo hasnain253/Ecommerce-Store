@@ -1,0 +1,94 @@
+.section5-div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.banner-main {
+  width: 100%;
+  background-color: rgb(44, 43, 43);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px;
+}
+.left-side {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  justify-content: center;
+  gap: 40px;
+}
+.beforeButton {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.bannerSpan {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+  color: #00ff66;
+  width: 90px;
+  height: 20px;
+}
+.bannerP {
+  width: 443px;
+  font-family: Inter;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 60px;
+  letter-spacing: 0.04em;
+  text-align: left;
+  color: #fff;
+}
+
+.round-time-design {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.round-time-design div {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.round-time-design div p {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+}
+.round-time-design div label {
+  font-family: Poppins;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 18px;
+  border-radius: 50px;
+  color: #000;
+}
+.banner-btn {
+  width: 180px;
+  padding: 16px 48px 16px 48px;
+  gap: 10px;
+  border-radius: 4px;
+  background-color: #00ff66;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+}

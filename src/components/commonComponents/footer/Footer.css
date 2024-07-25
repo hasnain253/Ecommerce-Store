@@ -1,0 +1,212 @@
+.Container {
+  width: 100%;
+  height: 440px;
+  padding: 80px 0px 24px 0px;
+  background: #000000;
+}
+
+.mainDiv {
+  color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  gap: 87px;
+}
+
+.logoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+h2 {
+  font-family: Inter, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+  text-align: left;
+}
+
+h3 {
+  font-family: Poppins, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  text-align: left;
+}
+
+.logoP {
+  color: #fafafa;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
+
+.logoHeadings {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.searchdiv {
+  width: 217px;
+  height: 48px;
+  padding: 12px 0px 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  border-radius: 4px;
+  border: 1.5px solid #fafafa;
+  position: relative;
+}
+.searchdiv input {
+  background-color: transparent;
+}
+.searchdiv img {
+  position: absolute;
+  left: 180px;
+  width: 24px;
+  height: 24px;
+  padding: 3px 2px 3px 2px;
+  cursor: pointer;
+}
+
+.support {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+.supportP {
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: #fafafa;
+}
+
+.accounts {
+  width: 123px;
+  height: 236px;
+  display: flex;
+  flex-direction: column;
+
+  gap: 24px;
+}
+.accounts h3 {
+  padding-top: 20px;
+}
+.accounts ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-decoration: none;
+  list-style: none;
+}
+.accounts ul li {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.quickLink {
+  width: 109px;
+  height: 196px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.quickLink ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.quickLink ul li {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
+
+.downloadApp {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.imagesMain {
+  width: 198px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+}
+.imagesMain p {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  color: #fafafa;
+}
+
+.images {
+  display: flex;
+  gap: 10px;
+}
+.leftSideimg {
+  width: 76px;
+  height: 76px;
+  border: 2.5px;
+}
+.rightSideimg {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.socialIcons {
+  width: 168px;
+  height: 24px;
+  display: flex;
+  gap: 24px;
+  cursor: pointer;
+}
+.socialIcons img {
+  width: 24px;
+  height: 24px;
+  padding: 3px 3.5px 3.5px 3px;
+  color: #fafafa;
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: auto;
+  padding-top: 80px;
+}
+.copyright p {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
