@@ -8,6 +8,7 @@ import AuothLayout from "./Layout/AuothLayout";
 import LoginPage from "./pages/Login/LoginPage";
 import WishList from "./components/wishlist/WishList";
 import AddToCart from "./pages/AddtoCart/AddToCart";
+import UserAccount from "./pages/UserAccount/UserAccount";
 
 function App() {
   const PrivateRoute = ({ element }) => {
@@ -35,6 +36,10 @@ function App() {
           <Route
             path="/addtocart"
             element={<PrivateRoute element={<AddToCart />} />}
+          />
+          <Route
+            path="/useraccount"
+            element={<PrivateRoute element={<UserAccount />} />}
           />
         </Route>
         <Route element={<AuothLayout />}>

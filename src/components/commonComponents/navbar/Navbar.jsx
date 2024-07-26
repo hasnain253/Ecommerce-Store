@@ -38,7 +38,11 @@ const Navbar = () => {
         <ul className="link-list">{navItems.map(navItem)}</ul>
       </div>
       <div className="searchBar">
-        <BaseInput type="search" placeHolder="What are you looking for?" />
+        <BaseInput
+          type="search"
+          placeHolder="What are you looking for?"
+          className="nav-searchInput"
+        />
         <img src={SearchIcon} alt="search-icon" />
       </div>
       <div className="site-icons">
