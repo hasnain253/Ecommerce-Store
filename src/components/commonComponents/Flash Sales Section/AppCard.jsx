@@ -33,7 +33,7 @@ const AppCard = ({
 
   return (
     <div className={`cards-parent ${gridLayout ? "grid-layout" : ""}`}>
-      {products.map((item) => (
+      {products?.map((item) => (
         <div className="cards" key={item.id}>
           <div className="icons-image-section">
             <div className="icons-text">

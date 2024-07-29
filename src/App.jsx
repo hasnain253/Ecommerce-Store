@@ -4,18 +4,18 @@ import ECommerceHome from "./pages/E-Commerce-home/ECommerceHome";
 import Contact from "./components/Contact/Contact";
 import About from "./components/About/About";
 import DefaultLayout from "./Layout/DefaultLayout";
-import AuothLayout from "./Layout/AuothLayout";
+import AuthLayout from "./Layout/AuthLayout";
 import LoginPage from "./pages/Login/LoginPage";
 import WishList from "./components/wishlist/WishList";
 import AddToCart from "./pages/AddtoCart/AddToCart";
 import UserAccount from "./pages/UserAccount/UserAccount";
+import Page404 from "./pages/Page404/Page404";
 
 function App() {
   const PrivateRoute = ({ element }) => {
-    const token = JSON.parse(localStorage.getItem("user"));
-    return token?.email ? element : <Navigate to="/" />;
+    const token = localStorage.getItem("user");
+    return token ? element : <Navigate to="/" />;
   };
-
   return (
     <>
       <Routes>
@@ -41,8 +41,12 @@ function App() {
             path="/useraccount"
             element={<PrivateRoute element={<UserAccount />} />}
           />
+          <Route
+            path="/errorpage"
+            element={<PrivateRoute element={<Page404 />} />}
+          />
         </Route>
-        <Route element={<AuothLayout />}>
+        <Route element={<AuthLayout />}>
           <Route path="/" element={<LoginPage />} />
         </Route>
       </Routes>

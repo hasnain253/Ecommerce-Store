@@ -12,33 +12,33 @@ import CustomerServices from "../commonComponents/customerServices/CustomerServi
 
 const Home = () => {
   return (
-    <div class="grid-container">
-      <div class="sidebar-item">
+    <div className="grid-container">
+      <div className="sidebar-item">
         <Sidebar />
       </div>
-      <div class="image-slider">
+      <div className="image-slider">
         <ImageSlider />
       </div>
-      <div class="sections-container">
-        <div class="section1">
+      <div className="sections-container">
+        <div className="section1">
           <FlashSales />
         </div>
-        <div class="section2">
+        <div className="section2">
           <Category />
         </div>
-        <div class="section3">
+        <div className="section3">
           <BestSellingProducts />
         </div>
-        <div class="categories-banner">
+        <div className="categories-banner">
           <CategoryBanner />
         </div>
-        <div class="our-products">
+        <div className="our-products">
           <OurProduct />
         </div>
-        <div class="newArrival">
+        <div className="newArrival">
           <NewArrivals />
         </div>
-        <div class="custome-service">
+        <div className="custome-service">
           <CustomerServices />
         </div>
       </div>

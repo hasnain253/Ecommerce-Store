@@ -6,9 +6,18 @@ import wishlistReducer from "../features/whishlist/wishlistSlice";
 import productReducer from "../features/product/productSlice";
 import ratingReducer from "../features/starRating/ratingSlice";
 import addtoCartReducer from "../features/addcart/addtoCart";
+import {
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
 
 const persistConfig = {
   key: "root",
+  version: 1,
   storage,
 };
 
@@ -23,6 +32,12 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
 export const persistor = persistStore(store);

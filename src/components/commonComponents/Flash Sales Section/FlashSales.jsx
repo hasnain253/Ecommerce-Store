@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./FlashSales.css";
 import BaseButton from "../BaseButton";
 import MostCommonHeader from "./MostCommonHeader";
-import { cardData } from "../../../utlis/Constants";
 import AppCard from "./AppCard";
 import { fetchProducts } from "../../../features/product/productSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,13 +17,14 @@ const FlashSales = () => {
     minutes: 2,
     seconds: 59,
   });
+
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
 
   const updateTimer = () => {
-    setTimerData((timerData) => {
-      let { days, hours, minutes, seconds } = timerData;
+    setTimerData((prevTimerData) => {
+      let { days, hours, minutes, seconds } = prevTimerData;
       if (seconds > 0) {
         seconds -= 1;
       } else if (minutes > 0) {
@@ -43,12 +43,13 @@ const FlashSales = () => {
       return { days, hours, minutes, seconds };
     });
   };
+
   useEffect(() => {
     const interval = setInterval(() => {
       updateTimer();
     }, 1000);
     return () => clearInterval(interval);
-  }, [updateTimer]);
+  }, []);
 
   const SalesAgain = () => {
     setTimerData({ days: 3, hours: 23, minutes: 2, seconds: 59 });
@@ -89,7 +90,7 @@ const FlashSales = () => {
       />
 
       {/* Card-sections */}
-      {timerData.minutes == 0 && timerData.seconds == 0 ? (
+      {timerData.minutes === 0 && timerData.seconds === 0 ? (
         <BaseButton
           text="Start Sales"
           classNameProp="FlasSales"
@@ -101,7 +102,7 @@ const FlashSales = () => {
             products={
               viewAllProducts
                 ? products
-                : products.slice(startIndex, startIndex + cardsToShow)
+                : products?.slice(startIndex, startIndex + cardsToShow)
             }
             showDiscount={true}
             isDelete={false}
