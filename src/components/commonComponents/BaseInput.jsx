@@ -1,20 +1,13 @@
 import React from "react";
 
-const BaseInput = ({
-  type,
-  name,
-  placeHolder,
-  value,
-  handleChange,
-  className,
-}) => {
+const BaseInput = ({ type, name, placeHolder, value, onChange, className }) => {
   return (
     <div>
       <input
         type={type}
         name={name}
         placeholder={placeHolder}
-        onChange={handleChange}
+        onChange={onChange}
         value={value}
         className={className}
       />

@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import "./FlashSales.css";
 
 const StarRating = ({ initialRating = 0, onRatingChange }) => {
   const [rating, setRating] = useState(initialRating);
   const [hover, setHover] = useState(null);
+
+  useEffect(() => {
+    setRating(initialRating);
+  }, [initialRating]);
 
   const handleClick = (rate) => {
     setRating(rate);

@@ -97,6 +97,7 @@
   line-height: 24px;
   text-align: left;
   cursor: pointer;
+  color: black;
 }
 .cartButtons:hover {
   background-color: #db4444;
@@ -114,6 +115,7 @@
 .apply-coupan {
   display: flex;
   gap: 20px;
+  align-items: baseline;
 }
 .coupan-input {
   width: 300px;
@@ -140,6 +142,8 @@
   font-size: 16px;
   cursor: pointer;
   font-weight: 500;
+  display: flex;
+  align-items: center;
 }
 
 .cart-total {

@@ -182,9 +182,7 @@
   display: flex;
   gap: 12px;
 }
-.discounted-price span {
-  padding-left: 5px;
-}
+
 .old-price {
   color: rgb(105, 102, 102);
   text-decoration: line-through;

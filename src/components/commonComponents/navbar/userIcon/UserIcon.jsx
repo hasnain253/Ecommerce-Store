@@ -6,6 +6,8 @@ import userOrders from "../../../../assets/images/orders.png";
 import userCancelletation from "../../../../assets/images/cancelletion.png";
 import userReviews from "../../../../assets/images/Reviews.png";
 import userLogOut from "../../../../assets/images/logout.png";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const UserIcon = () => {
   const [isCardOpen, setIsCardOpen] = useState(false);
@@ -19,6 +21,12 @@ const UserIcon = () => {
     if (cardRef.current && !cardRef.current.contains(event.target)) {
       setIsCardOpen(false);
     }
+  };
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    setIsCardOpen(false);
+    localStorage.removeItem("user");
+    navigate("/");
   };
 
   useEffect(() => {
@@ -40,10 +48,12 @@ const UserIcon = () => {
       {isCardOpen && (
         <div className="cardSection" ref={cardRef}>
           <ul>
-            <li onClick={() => setIsCardOpen(false)}>
-              <img src={userProfile} alt="Manage My Account" />
-              Manage My Account
-            </li>
+            <Link to="/useraccount" className="links-styling">
+              <li onClick={() => setIsCardOpen(false)}>
+                <img src={userProfile} alt="Manage My Account" />
+                Manage My Account
+              </li>
+            </Link>
             <li onClick={() => setIsCardOpen(false)}>
               <img src={userOrders} alt="My Order" />
               My Order
@@ -56,7 +66,7 @@ const UserIcon = () => {
               <img src={userReviews} alt="My Reviews" />
               My Reviews
             </li>
-            <li onClick={() => setIsCardOpen(false)}>
+            <li onClick={handleLogout}>
               <img src={userLogOut} alt="Logout" />
               Logout
             </li>

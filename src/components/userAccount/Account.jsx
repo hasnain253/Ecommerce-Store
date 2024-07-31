@@ -24,7 +24,7 @@ const Account = () => {
       </div>
       {/* right side */}
       <div className="EditProfile">
-        <form action="">
+        <form className="accountForm">
           <p className="profile-name">Edit Your Profile</p>
           <div className="names-input">
             <div>

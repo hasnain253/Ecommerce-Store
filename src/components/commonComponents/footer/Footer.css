@@ -66,6 +66,8 @@ h3 {
 }
 .searchdiv input {
   background-color: transparent;
+  border: none;
+  color: #fafafa;
 }
 .searchdiv img {
   position: absolute;

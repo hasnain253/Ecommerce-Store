@@ -13,9 +13,6 @@ import CustomerServices from "../commonComponents/customerServices/CustomerServi
 const Home = () => {
   return (
     <div className="grid-container">
-      <div className="sidebar-item">
-        <Sidebar />
-      </div>
       <div className="image-slider">
         <ImageSlider />
       </div>

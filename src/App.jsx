@@ -10,6 +10,7 @@ import WishList from "./components/wishlist/WishList";
 import AddToCart from "./pages/AddtoCart/AddToCart";
 import UserAccount from "./pages/UserAccount/UserAccount";
 import Page404 from "./pages/Page404/Page404";
+import CheckOut from "./pages/checkout/CheckOut";
 
 function App() {
   const PrivateRoute = ({ element }) => {
@@ -40,6 +41,10 @@ function App() {
           <Route
             path="/useraccount"
             element={<PrivateRoute element={<UserAccount />} />}
+          />
+          <Route
+            path="/checkout"
+            element={<PrivateRoute element={<CheckOut />} />}
           />
           <Route
             path="/errorpage"

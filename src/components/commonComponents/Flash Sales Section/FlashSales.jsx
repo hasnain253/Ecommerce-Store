@@ -5,6 +5,7 @@ import MostCommonHeader from "./MostCommonHeader";
 import AppCard from "./AppCard";
 import { fetchProducts } from "../../../features/product/productSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Loading from "../loading/Loading";
 
 const FlashSales = () => {
   const dispatch = useDispatch();
@@ -17,10 +18,17 @@ const FlashSales = () => {
     minutes: 2,
     seconds: 59,
   });
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
 
   useEffect(() => {
     dispatch(fetchProducts());
-  }, []);
+  }, [dispatch]);
 
   const updateTimer = () => {
     setTimerData((prevTimerData) => {
@@ -71,6 +79,10 @@ const FlashSales = () => {
   const handleNext = () => {
     setStartIndex((prevIndex) => (prevIndex + cardsToShow) % products.length);
   };
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="Section1-div">

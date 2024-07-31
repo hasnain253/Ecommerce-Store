@@ -16,39 +16,40 @@ const Login = () => {
   const [error, setError] = useState({ email: "", password: "" });
 
   useEffect(() => {
-    const loggedInUser = localStorage.getItem("user");
-    if (loggedInUser) {
+    if (localStorage.getItem("user")) {
       navigate("/home");
     }
   }, [navigate]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    let hasError = false;
-    let initialError = { ...error };
+  const validateInput = () => {
+    const newError = { email: "", password: "" };
+    let isValid = true;
 
     if (!inputData.email) {
-      initialError.email = "Email is required";
-      hasError = true;
+      newError.email = "Email is required";
+      isValid = false;
     } else if (!emailRegex.test(inputData.email)) {
-      initialError.email = "Invalid email format";
-      hasError = true;
+      newError.email = "Invalid email format";
+      isValid = false;
     }
 
     if (!inputData.password) {
-      initialError.password = "Password is required";
-      hasError = true;
+      newError.password = "Password is required";
+      isValid = false;
     } else if (!passwordRegex.test(inputData.password)) {
-      initialError.password =
+      newError.password =
         "Minimum eight characters, at least one letter, one number, and one special character";
-      hasError = true;
+      isValid = false;
     }
 
-    setError(initialError);
+    setError(newError);
+    return isValid;
+  };
 
-    if (hasError) {
-      return;
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!validateInput()) return;
 
     const user = userData.find((user) => user.email === inputData.email);
     if (!user) {
@@ -73,15 +74,19 @@ const Login = () => {
   return (
     <div className="container">
       <div className="login-dataInput">
-        <h1>LOGIN</h1>
-        <p>Sign up for access any of our products.</p>
-        <form onSubmit={handleSubmit}>
+        <h1 className="LoginHeading">LOGIN</h1>
+        <form onSubmit={handleSubmit} className="login-form">
+          <p className="accessProducts">
+            Sign up for access any of our products.
+          </p>
+          <br />
           <BaseInput
             type="email"
             name="email"
             placeHolder="Username"
+            className="login-input"
             value={inputData.email}
-            handleChange={handleChange}
+            onChange={handleChange}
           />
           <br />
           {error.email && <p style={{ color: "red" }}>{error.email}</p>}
@@ -91,10 +96,11 @@ const Login = () => {
             name="password"
             placeHolder="Password"
             value={inputData.password}
-            handleChange={handleChange}
+            className="login-input"
+            onChange={handleChange}
           />
           {error.password && <p style={{ color: "red" }}>{error.password}</p>}
-
+          <br />
           <BaseButton
             text="Login Now"
             classNameProp="submit-btn"
@@ -102,8 +108,7 @@ const Login = () => {
           />
           <br />
           <p className="paragraphL">
-            <span>Login</span>
-            {""} with Others
+            <span className="login-heading">Login</span> with Others
           </p>
           <div className="socialmediaIcons">
             <BaseButton
@@ -112,7 +117,7 @@ const Login = () => {
               src={google}
               alt="google-icon"
               text="Login in with"
-              showSpan={<span>Google</span>}
+              showSpan={<span className="login-heading">Google</span>}
             />
             <BaseButton
               classNameProp="icons"
@@ -120,7 +125,7 @@ const Login = () => {
               src={facebook}
               alt="fb-img"
               text="Login in with"
-              showSpan={<span>Facebook</span>}
+              showSpan={<span className="login-heading">Facebook</span>}
             />
           </div>
         </form>

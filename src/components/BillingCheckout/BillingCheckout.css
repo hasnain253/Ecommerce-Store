@@ -1,0 +1,199 @@
+.BillingContainer {
+  width: 1200px;
+  margin: auto;
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.Billing-heading {
+  font-family: Inter;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0.04em;
+  text-align: left;
+  margin-top: -2rem;
+}
+.input-and-billing {
+  display: grid;
+  grid-template-columns: 470px 527px;
+  gap: 100px;
+}
+.BillingDetails {
+  width: 470px;
+  height: 766px;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.forAllInputs {
+  width: 470px;
+  height: 50px;
+  border-radius: 4px;
+  background: #f5f5f5;
+  font-size: 16px;
+  border: none;
+  padding-left: 10px;
+}
+
+.inputs-div label {
+  margin-top: -10px;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: #000000;
+}
+.saveInformation {
+  display: flex;
+  gap: 10px;
+}
+.checkbox-input {
+  width: 24px;
+  height: 24px;
+  padding: 7px 5px 7px 5px;
+  border-radius: 4px;
+  color: #f5f5f5;
+}
+input[type="checkbox"] {
+  accent-color: #db4444;
+}
+.information {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
+.extraspace {
+  margin-top: 5rem;
+}
+
+.pymentMethod {
+  width: 527px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+}
+.selected-items {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+.product-detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  width: 400px;
+  height: 54px;
+  gap: 24px;
+  text-align: left;
+}
+
+.product-image-checkout {
+  width: 54px;
+  height: 54px;
+  padding: 6px 2.12px 5.78px 3px;
+}
+.debatCards {
+  display: flex;
+  width: 400px;
+  height: 28px;
+  gap: 155px;
+  justify-content: center;
+  margin: auto;
+  margin-top: 30px;
+}
+.bankoption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.radio-input {
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.debatCardimage {
+  display: flex;
+  width: 192px;
+  height: 28px;
+  gap: 8px;
+}
+.cashonDelivery {
+  display: flex;
+  width: 192px;
+  height: 28px;
+  gap: 8px;
+  margin-left: 59px;
+  margin-top: 20px;
+}
+.apply-coupan-billing {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  margin-left: 59px;
+  align-items: baseline;
+}
+
+.coup-input {
+  width: 250px;
+  height: 50px;
+  padding: 16px 164px 16px 24px;
+  border-radius: 4px;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  background-color: #ffffff;
+  border: 1px solid black;
+}
+.coup-btn {
+  width: 190px;
+  height: 50px;
+  padding: 16px 48px 16px 48px;
+  gap: 10px;
+  border-radius: 4px;
+  color: #ffffff;
+  background-color: #db4444;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.placeOrder {
+  width: 190px;
+  height: 56px;
+  padding: 16px 48px 16px 48px;
+  gap: 10px;
+  border-radius: 4px;
+  background: #db4444;
+  color: #f5f5f5;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-left: 59px;
+  display: flex;
+  align-items: center;
+}
+.showPayment {
+  display: block;
+  margin-top: 20px;
+}
+.hidePayment {
+  display: none;
+}

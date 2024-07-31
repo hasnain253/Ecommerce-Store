@@ -13,6 +13,7 @@ import { removeCart } from "../../features/addcart/addtoCart";
 import "./ProductCart.css";
 import BaseButton from "../commonComponents/BaseButton";
 import BaseInput from "../commonComponents/BaseInput";
+import { Link } from "react-router-dom";
 
 const ProductCart = () => {
   const carts = useSelector((state) => state.cart.products);
@@ -35,10 +36,12 @@ const ProductCart = () => {
 
   const calculateSubtotal = () => {
     return carts.reduce((acc, product) => {
-      return acc + product.price * (quantities[product.id] || 1);
+      if (product.price) {
+        return acc + product.price * (quantities[product.id] || 1);
+      }
+      return acc;
     }, 0);
   };
-
   const handleQuantityChange = (id, quantity) => {
     setQuantities((prevQuantities) => ({
       ...prevQuantities,
@@ -48,7 +51,7 @@ const ProductCart = () => {
 
   useEffect(() => {
     const subtotal = calculateSubtotal();
-    const shipping = 0;
+    const shipping = 200;
     const total = subtotal + shipping;
     setCartDetails([
       { label: "Subtotal:", value: `$${subtotal.toFixed(2)}` },
@@ -127,23 +130,33 @@ const ProductCart = () => {
                       </span>
                     </div>
                   </Cell>
-                  <Cell className="cell">${item.price}</Cell>
                   <Cell className="cell">
-                    <select
-                      value={quantities[item.id] || 1}
-                      onChange={(event) =>
-                        handleQuantityChange(item.id, event.target.value)
-                      }
-                    >
-                      {quantityOptions.map((quantity) => (
-                        <option key={quantity} value={quantity}>
-                          {quantity}
-                        </option>
-                      ))}
-                    </select>
+                    {item.price ? `$${item.price}` : "Out of stock"}
                   </Cell>
+
                   <Cell className="cell">
-                    ${item.price * (quantities[item.id] || 1).toFixed(2)}
+                    {item.price ? (
+                      <select
+                        value={quantities[item.id] || 1}
+                        onChange={(event) =>
+                          handleQuantityChange(item.id, event.target.value)
+                        }
+                      >
+                        {quantityOptions.map((quantity) => (
+                          <option key={quantity} value={quantity}>
+                            {quantity}
+                          </option>
+                        ))}
+                      </select>
+                    ) : (
+                      "Out of stock"
+                    )}
+                  </Cell>
+
+                  <Cell className="cell">
+                    {item.price
+                      ? `$${item.price * (quantities[item.id] || 1).toFixed(2)}`
+                      : "Out of stock"}
                   </Cell>
                 </Row>
               ))}
@@ -157,12 +170,14 @@ const ProductCart = () => {
       </div>
       <div className="coupan-cart">
         <div className="apply-coupan">
-          <BaseInput
-            className="coupan-input"
-            placeHolder="Coupon Code"
-            name="coupan"
-            type="text"
-          />
+          <div>
+            <BaseInput
+              className="coupan-input"
+              placeHolder="Coupon Code"
+              name="coupan"
+              type="text"
+            />
+          </div>
           <BaseButton text="Apply Coupon" classNameProp="coupan-btn" />
         </div>
         <div className="cart-total">
@@ -173,7 +188,12 @@ const ProductCart = () => {
               <p>{detail.value}</p>
             </div>
           ))}
-          <BaseButton text="Proceed to checkout" classNameProp="checkout-btn" />
+          <Link to="/checkout">
+            <BaseButton
+              text="Proceed to checkout"
+              classNameProp="checkout-btn"
+            />
+          </Link>
         </div>
       </div>
       <div className="spacing"></div>
