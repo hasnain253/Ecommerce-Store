@@ -14,12 +14,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [inputData, setInputData] = useState({ email: "", password: "" });
   const [error, setError] = useState({ email: "", password: "" });
-
-  useEffect(() => {
-    if (localStorage.getItem("user")) {
-      navigate("/home");
-    }
-  }, [navigate]);
+  const [role, setRole] = useState("");
 
   const validateInput = () => {
     const newError = { email: "", password: "" };
@@ -61,14 +56,23 @@ const Login = () => {
       setError({ email: "", password: "Invalid password" });
       return;
     }
+    if (user.role === "user") {
+      localStorage.setItem("user", JSON.stringify(user));
+      navigate("/home");
+    } else if (user.role === "admin") {
+      localStorage.setItem("admin", JSON.stringify(user));
+      navigate("/admin-dashboard");
+    }
 
-    localStorage.setItem("user", JSON.stringify(user));
-    navigate("/home");
     setInputData({ email: "", password: "" });
   };
 
   const handleChange = (e) => {
     setInputData({ ...inputData, [e.target.name]: e.target.value });
+  };
+
+  const handleRoleChange = (e) => {
+    setRole(e.target.name);
   };
 
   return (
@@ -101,6 +105,26 @@ const Login = () => {
           />
           {error.password && <p style={{ color: "red" }}>{error.password}</p>}
           <br />
+          <div className="conditional-login">
+            <div className="user-admin">
+              <BaseInput
+                type="radio"
+                name="user"
+                className="checking-login"
+                onChange={handleRoleChange}
+              />
+              <p>User</p>
+            </div>
+            <div className="user-admin">
+              <BaseInput
+                type="radio"
+                name="user"
+                className="checking-login"
+                onChange={handleRoleChange}
+              />
+              <p>Admin</p>
+            </div>
+          </div>
           <BaseButton
             text="Login Now"
             classNameProp="submit-btn"

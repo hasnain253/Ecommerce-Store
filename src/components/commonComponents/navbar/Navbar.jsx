@@ -7,12 +7,13 @@ import HeartIcon from "../../../assets/images/heart.png";
 import BaseInput from "../../commonComponents/BaseInput";
 import UserIcon from "./userIcon/UserIcon";
 import { useSelector } from "react-redux";
+import AdminNavbar from "../../Admin/adminnavbar/AdminNavbar";
 
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState("home");
   const wishlists = useSelector((state) => state.wishlist.products);
   const carts = useSelector((state) => state.cart.products);
-
+  const isUser = localStorage.getItem("user");
   const navItems = [
     { name: "home", path: "/" },
     { name: "about", path: "/about" },
@@ -31,35 +32,41 @@ const Navbar = () => {
 
   return (
     <div className="main-section">
-      <div className="logo">
-        <h2>Exclusive</h2>
-      </div>
-      <div className="navlinks">
-        <ul className="link-list">{navItems.map(navItem)}</ul>
-      </div>
-      <div className="searchBar">
-        <BaseInput
-          type="search"
-          placeHolder="What are you looking for?"
-          className="nav-searchInput"
-        />
-        <img src={SearchIcon} alt="search-icon" />
-      </div>
-      <div className="site-icons">
-        <Link to="/wishlist" className="wishlist-link">
-          <div className="wishlist-container">
-            <img src={HeartIcon} alt="heart-icon" />
-            <div className="nav-cart-count">{wishlists.length}</div>
+      {isUser?.role === "user" ? (
+        <>
+          <div className="logo">
+            <h2>Exclusive</h2>
           </div>
-        </Link>
-        <Link to="/addtocart" className="wishlist-link">
-          <div className="wishlist-container">
-            <img src={CartIcon} alt="cart-icon" />
-            <div className="nav-cart-count">{carts.length}</div>
+          <div className="navlinks">
+            <ul className="link-list">{navItems.map(navItem)}</ul>
           </div>
-        </Link>
-        <UserIcon />
-      </div>
+          <div className="searchBar">
+            <BaseInput
+              type="search"
+              placeHolder="What are you looking for?"
+              className="nav-searchInput"
+            />
+            <img src={SearchIcon} alt="search-icon" />
+          </div>
+          <div className="site-icons">
+            <Link to="/wishlist" className="wishlist-link">
+              <div className="wishlist-container">
+                <img src={HeartIcon} alt="heart-icon" />
+                <div className="nav-cart-count">{wishlists.length}</div>
+              </div>
+            </Link>
+            <Link to="/addtocart" className="wishlist-link">
+              <div className="wishlist-container">
+                <img src={CartIcon} alt="cart-icon" />
+                <div className="nav-cart-count">{carts.length}</div>
+              </div>
+            </Link>
+            <UserIcon />
+          </div>
+        </>
+      ) : (
+        <AdminNavbar />
+      )}
     </div>
   );
 };

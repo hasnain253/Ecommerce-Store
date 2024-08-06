@@ -10,7 +10,8 @@ import LinkedInIcon from "../../../assets/images/linkedInFooter.png";
 import QrCode from "../../../assets/images/Qr Code.png";
 
 const Footer = () => {
-  return (
+  const isUser = JSON.parse(localStorage.getItem("user"));
+  return isUser?.role === "user" ? (
     <div className="Container">
       <div className="mainDiv">
         <div className="logoSection">
@@ -66,24 +67,24 @@ const Footer = () => {
                 <img src={QrCode} alt="qr-code" />
               </div>
               <div className="rightSideimg">
-                <img src={GooglePlayStore} alt="" />
-                <img src={DownloadApp} alt="" />
+                <img src={GooglePlayStore} alt="Google Play Store" />
+                <img src={DownloadApp} alt="App Store" />
               </div>
             </div>
           </div>
           <div className="socialIcons">
-            <img src={FacebookIcon} alt="" />
-            <img src={TwitterIcon} alt="" />
-            <img src={InstagramIcon} alt="" />
-            <img src={LinkedInIcon} alt="" />
+            <img src={FacebookIcon} alt="Facebook" />
+            <img src={TwitterIcon} alt="Twitter" />
+            <img src={InstagramIcon} alt="Instagram" />
+            <img src={LinkedInIcon} alt="LinkedIn" />
           </div>
         </div>
       </div>
       <div className="copyright">
-        <p>&copy; Copyright Rimel 2022. All right reserved</p>
+        <p>&copy; Copyright Rimel 2022. All rights reserved.</p>
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default Footer;

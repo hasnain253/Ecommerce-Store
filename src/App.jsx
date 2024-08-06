@@ -1,4 +1,5 @@
 import "./App.css";
+
 import { Route, Routes, Navigate } from "react-router-dom";
 import ECommerceHome from "./pages/E-Commerce-home/ECommerceHome";
 import Contact from "./components/Contact/Contact";
@@ -11,12 +12,20 @@ import AddToCart from "./pages/AddtoCart/AddToCart";
 import UserAccount from "./pages/UserAccount/UserAccount";
 import Page404 from "./pages/Page404/Page404";
 import CheckOut from "./pages/checkout/CheckOut";
+import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
+import UserDetails from "./components/Admin/userdetails/UserDetails";
+import UserList from "./components/Admin/userdetails/UserList";
 
 function App() {
   const PrivateRoute = ({ element }) => {
     const token = localStorage.getItem("user");
     return token ? element : <Navigate to="/" />;
   };
+  const AdminRoute = ({ element }) => {
+    const adminToken = localStorage.getItem("admin");
+    return adminToken ? element : <Navigate to="/" />;
+  };
+
   return (
     <>
       <Routes>
@@ -50,6 +59,12 @@ function App() {
             path="/errorpage"
             element={<PrivateRoute element={<Page404 />} />}
           />
+          <Route
+            path="/admin-dashboard"
+            element={<AdminRoute element={<AdminDashboard />} />}
+          />
+          <Route path="/user/:userId" element={<UserDetails />} />
+          <Route path="/userlist" element={<UserList />} />
         </Route>
         <Route element={<AuthLayout />}>
           <Route path="/" element={<LoginPage />} />

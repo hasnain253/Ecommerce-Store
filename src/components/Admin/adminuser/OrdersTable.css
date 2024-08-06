@@ -1,0 +1,92 @@
+.Admin-user-section {
+  width: 1200px;
+  margin: auto;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 100px;
+}
+
+.orders-table {
+  background-color: white;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.header-row,
+.body-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+.header-cell,
+.body-cell {
+  flex: 1;
+  padding: 16px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  font-size: 12px;
+}
+
+.header-cell {
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.body-row:hover {
+  background-color: #f9fafb;
+}
+
+.status {
+  padding: 4px 8px;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 9999px;
+}
+
+.status-pending {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.status-delivered {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-processing {
+  background-color: #dbf6f0;
+  color: #055f75;
+}
+
+.status-shipped {
+  background-color: #ede9fe;
+  color: #5b21b6;
+}
+
+.view-order-button {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.view-order-button:hover {
+  background-color: #3730a3;
+}
+
+.view-order-button:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}

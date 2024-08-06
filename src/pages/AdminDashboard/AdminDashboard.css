@@ -1,0 +1,6 @@
+.Admin-Dashboar-section {
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}

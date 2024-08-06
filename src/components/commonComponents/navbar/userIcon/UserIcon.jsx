@@ -25,7 +25,7 @@ const UserIcon = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
     setIsCardOpen(false);
-    localStorage.removeItem("user");
+    localStorage.clear();
     navigate("/");
   };
 
