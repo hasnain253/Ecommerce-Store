@@ -13,7 +13,7 @@ const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState("home");
   const wishlists = useSelector((state) => state.wishlist.products);
   const carts = useSelector((state) => state.cart.products);
-  const isUser = localStorage.getItem("user");
+  const user = JSON.parse(localStorage.getItem("user")); // Parse user data from localStorage
   const navItems = [
     { name: "home", path: "/" },
     { name: "about", path: "/about" },
@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <div className="main-section">
-      {isUser?.role === "user" ? (
+      {user && user.role === "user" ? (
         <>
           <div className="logo">
             <h2>Exclusive</h2>

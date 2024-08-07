@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import { useTable } from "react-table";
+import React from "react";
+import { useTable, usePagination } from "react-table";
 import dayjs from "dayjs";
+import { useNavigate } from "react-router-dom";
+import Pagination from "../pagination/Pagination";
 import "./OrdersTable.css";
 import { userOrders } from "../../../utlis/userOrders";
-import UserDetails from "../userdetails/UserDetails";
 
 const OrdersTable = () => {
-  const [selectedOrder, setSelectedOrder] = useState(null);
+  const navigate = useNavigate();
 
   const data = React.useMemo(() => userOrders, []);
 
@@ -47,7 +48,7 @@ const OrdersTable = () => {
         accessor: "action",
         Cell: ({ row }) => (
           <button
-            onClick={() => handleViewOrder(row.original)}
+            onClick={() => handleViewOrder(row.original.userId)}
             className="view-order-button"
           >
             View Details
@@ -58,12 +59,33 @@ const OrdersTable = () => {
     []
   );
 
-  const handleViewOrder = (order) => {
-    setSelectedOrder(order);
+  const handleViewOrder = (orderId) => {
+    navigate(`/orders/${orderId}`);
   };
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data });
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    page,
+    prepareRow,
+    canPreviousPage,
+    canNextPage,
+    pageOptions,
+    pageCount,
+    gotoPage,
+    nextPage,
+    previousPage,
+    setPageSize,
+    state: { pageIndex, pageSize },
+  } = useTable(
+    {
+      columns,
+      data,
+      initialState: { pageIndex: 0, pageSize: 5 },
+    },
+    usePagination
+  );
 
   return (
     <div className="table-container">
@@ -80,7 +102,7 @@ const OrdersTable = () => {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row) => {
+          {page.map((row) => {
             prepareRow(row);
             return (
               <tr {...row.getRowProps()} className="body-row">
@@ -94,13 +116,17 @@ const OrdersTable = () => {
           })}
         </tbody>
       </table>
-
-      {selectedOrder && (
-        <UserDetails
-          order={selectedOrder}
-          onClose={() => setSelectedOrder(null)}
-        />
-      )}
+      <Pagination
+        pageOptions={pageOptions}
+        previousPage={previousPage}
+        canPreviousPage={canPreviousPage}
+        nextPage={nextPage}
+        canNextPage={canNextPage}
+        gotoPage={gotoPage}
+        pageSize={pageSize}
+        setPageSize={setPageSize}
+        pageIndex={pageIndex}
+      />
     </div>
   );
 };

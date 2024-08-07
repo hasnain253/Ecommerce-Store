@@ -1,26 +1,38 @@
 .user-details-page {
   padding: 20px;
-  width: 1200px;
+  width: 1000px;
   margin: auto;
   display: flex;
-  flex-direction: column;
-  gap: 30px;
+  margin-top: 50px;
+  justify-content: space-between;
 }
+
+.userDetails,
+.oderDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  width: 400px;
+}
+
 .user-detail-h1 {
   font-family: Inter;
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
   letter-spacing: 0.03em;
-  text-align: left;
+  text-align: center;
   color: #db4444;
 }
-.user-image {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  margin-right: 20px;
+
+.order-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .user-info {
@@ -28,21 +40,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-
-.order-details-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.order-details-table th,
-.order-details-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-.order-details-table th {
-  background-color: #f4f4f4;
+  margin: auto;
 }
 
 .order-history {
@@ -53,4 +51,66 @@
   letter-spacing: 0.03em;
   text-align: left;
   color: #db4444;
+}
+
+.status {
+  cursor: pointer;
+  padding: 6px 12px;
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 9999px;
+  text-transform: capitalize;
+  align-items: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.status:hover {
+  opacity: 0.8;
+}
+
+.actions-button {
+  padding: 6px 20px;
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 9999px;
+  gap: 15px;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.actions-button:hover {
+  opacity: 0.8;
+}
+
+.actions-button .pending {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.actions-button .inProcessing {
+  background-color: #dbf6f0;
+  color: #055f75;
+}
+
+.actions-button .readytoShip {
+  background-color: #ede9fe;
+  color: #5b21b6;
+}
+
+.actions-button .delivered {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.actions-button .completed {
+  background-color: #144960;
+  color: #edebf0;
+}
+
+span {
+  padding-left: 5px;
 }

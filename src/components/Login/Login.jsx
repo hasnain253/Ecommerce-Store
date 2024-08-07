@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { userData } from "./jsonData";
 import facebook from "../../assets/images/facebook 1.png";
@@ -56,12 +56,15 @@ const Login = () => {
       setError({ email: "", password: "Invalid password" });
       return;
     }
-    if (user.role === "user") {
+
+    if (role === "user" && user.role === "user") {
       localStorage.setItem("user", JSON.stringify(user));
       navigate("/home");
-    } else if (user.role === "admin") {
+    } else if (role === "admin" && user.role === "admin") {
       localStorage.setItem("admin", JSON.stringify(user));
-      navigate("/admin-dashboard");
+      navigate("/admin-dashboard/orders");
+    } else {
+      setError({ email: "", password: "Role does not match" });
     }
 
     setInputData({ email: "", password: "" });
@@ -72,7 +75,7 @@ const Login = () => {
   };
 
   const handleRoleChange = (e) => {
-    setRole(e.target.name);
+    setRole(e.target.value);
   };
 
   return (
@@ -109,7 +112,8 @@ const Login = () => {
             <div className="user-admin">
               <BaseInput
                 type="radio"
-                name="user"
+                name="role"
+                value="user"
                 className="checking-login"
                 onChange={handleRoleChange}
               />
@@ -118,7 +122,8 @@ const Login = () => {
             <div className="user-admin">
               <BaseInput
                 type="radio"
-                name="user"
+                name="role"
+                value="admin"
                 className="checking-login"
                 onChange={handleRoleChange}
               />

@@ -1,67 +1,160 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { usersDetails } from "../../../utlis/users";
 import { userOrders } from "../../../utlis/userOrders";
 import "./UserDetails.css";
+import StatusButton from "./StatusButton";
+import Page404 from "../../../pages/Page404/Page404";
 
 const UserDetails = () => {
   const { userId } = useParams();
   const user = usersDetails.find((user) => user.userId === userId);
-  const orders = userOrders.filter((order) => order.userId === userId);
+  const [orders, setOrders] = useState(
+    userOrders.filter((order) => order.userId === userId)
+  );
 
-  if (!user) return <div>User not found</div>;
+  const handleStatusChange = (orderId, status) => {
+    const filteredOrders = orders.map((order) => {
+      if (order.orderId === orderId) {
+        return {
+          ...order,
+          status,
+        };
+      } else {
+        return order;
+      }
+    });
+    setOrders(filteredOrders);
+  };
+
+  if (!user) return <Page404 />;
+
+  const getNextStatus = (currentStatus) => {
+    const statusOrder = ["Pending", "Processing", "Shipped", "Delivered"];
+    const currentIndex = statusOrder.indexOf(currentStatus);
+    return currentIndex < statusOrder.length - 1
+      ? statusOrder[currentIndex + 1]
+      : null;
+  };
 
   return (
     <div className="user-details-page">
-      <h1 className="user-detail-h1">User Details</h1>
-      <div className="user-info">
-        <img src={user.image} alt={user.name} className="user-image" />
-        <p>
-          <strong>Name:</strong> {user.name}
-        </p>
-        <p>
-          <strong>Email:</strong> {user.email}
-        </p>
-        <p>
-          <strong>Phone:</strong> {user.phone}
-        </p>
+      <div className="userDetails">
+        <h1 className="user-detail-h1">User Details</h1>
+        <div className="user-info">
+          <img
+            src={user.image}
+            alt={user.name}
+            className="user-image"
+            style={{
+              width: "250px",
+              height: "250px",
+              margin: "auto",
+              objectFit: "cover",
+            }}
+          />
+          <p>
+            <strong>Name:</strong>
+            <span>{user.name}</span>
+          </p>
+          <p>
+            <strong>Email:</strong>
+            <span>{user.email}</span>
+          </p>
+          <p>
+            <strong>Phone:</strong>
+            <span>{user.phone}</span>
+          </p>
+        </div>
       </div>
-      <h2 className="order-history">Order Details</h2>
-      <table className="order-details-table">
-        <thead>
-          <tr>
-            <th>Order ID</th>
-            <th>Date</th>
-            <th>Total Amount</th>
-            <th>Status</th>
-            <th>Items</th>
-            <th>Quantity</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map((order) => (
-            <tr key={order.orderId}>
-              <td>{order.orderId}</td>
-              <td>{order.date}</td>
-              <td>${order.totalAmount.toFixed(2)}</td>
-              <td>{order.status}</td>
-              <td>
-                <ul>
-                  {order.items.map((item, index) => (
-                    <li key={index}>
-                      {item.productName} (x{item.quantity}) - $
-                      {item.price.toFixed(2)}
-                    </li>
-                  ))}
-                </ul>
-              </td>
-              <td>
-                {order.items.reduce((acc, item) => acc + item.quantity, 0)}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className="oderDetails">
+        <h2 className="order-history">Order History</h2>
+        {orders.map((order) => (
+          <div key={order.orderId} className="order-item">
+            <div>
+              <strong>Order ID: </strong>
+              <span>{order.orderId}</span>
+            </div>
+            <div>
+              <strong>Date: </strong>
+              <span>{order.date}</span>
+            </div>
+            <div>
+              <strong>Total Amount: </strong>
+              <span>${order.totalAmount.toFixed(2)}</span>
+            </div>
+            <div>
+              <strong>Status: </strong>
+              <span>{order.status}</span>
+            </div>
+            <div>
+              <strong>Items: </strong>
+              <ul>
+                {order.items.map((item, index) => (
+                  <li key={index} className="order-item-detail">
+                    <img
+                      src={item.image}
+                      alt={item.productName}
+                      className="item-image"
+                      style={{
+                        width: "100px",
+                        height: "70px",
+                        marginRight: "10px",
+                      }}
+                    />
+                    {item.productName} (x{item.quantity}) - $
+                    {item.price.toFixed(2)}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <strong>Quantity: </strong>
+              <span>
+                {order.items.reduce((total, item) => total + item.quantity, 0)}
+              </span>
+            </div>
+            <div className="actions-button">
+              {order.status === "Pending" && (
+                <StatusButton
+                  onClick={() =>
+                    handleStatusChange(
+                      order.orderId,
+                      getNextStatus(order.status)
+                    )
+                  }
+                  status="order processed"
+                  className="actions-button inProcessing"
+                />
+              )}
+              {order.status === "Processing" && (
+                <StatusButton
+                  onClick={() =>
+                    handleStatusChange(
+                      order.orderId,
+                      getNextStatus(order.status)
+                    )
+                  }
+                  status="ready to shiped"
+                  className="actions-button readytoShip"
+                />
+              )}
+              {order.status === "Shipped" && (
+                <StatusButton
+                  onClick={() =>
+                    handleStatusChange(
+                      order.orderId,
+                      getNextStatus(order.status)
+                    )
+                  }
+                  status="ready to deliverd"
+                  className="actions-button delivered"
+                />
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

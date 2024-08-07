@@ -1,5 +1,4 @@
 import "./App.css";
-
 import { Route, Routes, Navigate } from "react-router-dom";
 import ECommerceHome from "./pages/E-Commerce-home/ECommerceHome";
 import Contact from "./components/Contact/Contact";
@@ -21,56 +20,66 @@ function App() {
     const token = localStorage.getItem("user");
     return token ? element : <Navigate to="/" />;
   };
+
   const AdminRoute = ({ element }) => {
     const adminToken = localStorage.getItem("admin");
     return adminToken ? element : <Navigate to="/" />;
   };
 
   return (
-    <>
-      <Routes>
-        <Route element={<DefaultLayout />}>
-          <Route
-            path="/home"
-            element={<PrivateRoute element={<ECommerceHome />} />}
-          />
-          <Route
-            path="/contact"
-            element={<PrivateRoute element={<Contact />} />}
-          />
-          <Route path="/about" element={<PrivateRoute element={<About />} />} />
-          <Route
-            path="/wishlist"
-            element={<PrivateRoute element={<WishList />} />}
-          />
-          <Route
-            path="/addtocart"
-            element={<PrivateRoute element={<AddToCart />} />}
-          />
-          <Route
-            path="/useraccount"
-            element={<PrivateRoute element={<UserAccount />} />}
-          />
-          <Route
-            path="/checkout"
-            element={<PrivateRoute element={<CheckOut />} />}
-          />
-          <Route
-            path="/errorpage"
-            element={<PrivateRoute element={<Page404 />} />}
-          />
-          <Route
-            path="/admin-dashboard"
-            element={<AdminRoute element={<AdminDashboard />} />}
-          />
-          <Route path="/user/:userId" element={<UserDetails />} />
-          <Route path="/userlist" element={<UserList />} />
-        </Route>
-        <Route element={<AuthLayout />}>
-          <Route path="/" element={<LoginPage />} />
-        </Route>
-      </Routes>
-    </>
+    <Routes>
+      {/* Public routes */}
+      <Route element={<AuthLayout />}>
+        <Route path="/" element={<LoginPage />} />
+      </Route>
+
+      {/* Protected routes */}
+      <Route element={<DefaultLayout />}>
+        <Route
+          path="/home"
+          element={<PrivateRoute element={<ECommerceHome />} />}
+        />
+        <Route
+          path="/contact"
+          element={<PrivateRoute element={<Contact />} />}
+        />
+        <Route path="/about" element={<PrivateRoute element={<About />} />} />
+        <Route
+          path="/wishlist"
+          element={<PrivateRoute element={<WishList />} />}
+        />
+        <Route
+          path="/addtocart"
+          element={<PrivateRoute element={<AddToCart />} />}
+        />
+        <Route
+          path="/useraccount"
+          element={<PrivateRoute element={<UserAccount />} />}
+        />
+        <Route
+          path="/checkout"
+          element={<PrivateRoute element={<CheckOut />} />}
+        />
+        <Route
+          path="/errorpage"
+          element={<PrivateRoute element={<Page404 />} />}
+        />
+
+        {/* Admin routes */}
+        <Route
+          path="/admin-dashboard/orders"
+          element={<AdminRoute element={<AdminDashboard />} />}
+        />
+        <Route
+          path="/orders/:userId"
+          element={<AdminRoute element={<UserDetails />} />}
+        />
+        <Route
+          path="/admin-dashboard/userlist"
+          element={<AdminRoute element={<UserList />} />}
+        />
+      </Route>
+    </Routes>
   );
 }
 

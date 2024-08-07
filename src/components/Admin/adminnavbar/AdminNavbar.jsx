@@ -9,13 +9,13 @@ const AdminNavbar = () => {
       <div className="admin-logo">
         <h2>Admin Dashboard</h2>
       </div>
-      <div className="navlinks">
-        <ul className="link-list">
+      <div className="adminnav-links">
+        <ul className="admin-nav-list ">
           <li>
-            <Link to="/admin-dashboard">Orders</Link>
+            <Link to="/admin-dashboard/orders ">Orders</Link>
           </li>
           <li>
-            <Link to="/userlist">User List </Link>
+            <Link to="/admin-dashboard/userlist">User List </Link>
           </li>
         </ul>
       </div>
