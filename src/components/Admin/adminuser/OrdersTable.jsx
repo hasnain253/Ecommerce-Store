@@ -5,11 +5,12 @@ import { useNavigate } from "react-router-dom";
 import Pagination from "../pagination/Pagination";
 import "./OrdersTable.css";
 import { userOrders } from "../../../utlis/userOrders";
+import { useSelector } from "react-redux";
 
 const OrdersTable = () => {
   const navigate = useNavigate();
-
-  const data = React.useMemo(() => userOrders, []);
+  const allOrders = useSelector((state) => state.orders);
+  const data = React.useMemo(() => allOrders, []);
 
   const columns = React.useMemo(
     () => [

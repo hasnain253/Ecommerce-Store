@@ -1,3 +1,4 @@
+/* Base styles */
 .container {
   display: grid;
   grid-template-columns: 6fr 6fr;
@@ -15,6 +16,7 @@
   gap: 20px;
   border-radius: 10px;
 }
+
 .login-input {
   width: 364px;
   height: 52px;
@@ -26,6 +28,7 @@
   border-radius: 16px;
   font-size: 12px;
 }
+
 .LoginHeading {
   font-size: 30px;
   color: #000000;
@@ -34,6 +37,7 @@
   font-weight: 700;
   margin-top: 20px;
 }
+
 .accessProducts {
   font-size: 16px;
   color: #525252;
@@ -42,6 +46,7 @@
   padding-left: 15px;
   padding-top: -70px;
 }
+
 .submit-btn {
   width: 124px;
   height: 52px;
@@ -61,6 +66,7 @@
   cursor: pointer;
   box-shadow: 0px 8px 21px 0px #00000029;
 }
+
 .paragraphL {
   font-size: 16px;
   font-weight: 400;
@@ -72,12 +78,14 @@
   margin-top: 10px;
   cursor: pointer;
 }
+
 .login-heading {
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
   text-align: left;
 }
+
 .socialmediaIcons {
   display: flex;
   align-items: center;
@@ -105,6 +113,7 @@
   font-size: 12px;
   color: #000000;
 }
+
 .icons img {
   width: 30px;
   height: 30px;
@@ -116,6 +125,7 @@
   display: flex;
   align-items: center;
 }
+
 .card {
   background: #ffffff36;
   border: 1px solid #ffffff85;
@@ -135,6 +145,7 @@
   top: 10px;
   right: -90px;
 }
+
 .paragraphR {
   font-family: Poppins;
   font-size: 32px;
@@ -147,6 +158,7 @@
   left: 40px;
   width: 184px;
 }
+
 .thunder {
   background-color: #fff;
   border-radius: 50%;
@@ -166,8 +178,238 @@
   display: flex;
   gap: 10px;
 }
+
 .checking-login {
   height: 20px;
   width: 20px;
   cursor: pointer;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 1200px) {
+  .container {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 30px;
+    margin: auto;
+  }
+
+  .login-dataInput {
+    width: 70%;
+    height: auto;
+    margin: auto;
+  }
+
+  .login-input {
+    width: 100%;
+  }
+
+  .LoginHeading {
+    font-size: 24px;
+  }
+
+  .accessProducts {
+    font-size: 14px;
+    padding-left: 10px;
+  }
+
+  .submit-btn {
+    width: 100px;
+    height: 44px;
+    font-size: 10px;
+  }
+
+  .paragraphL {
+    font-size: 14px;
+  }
+
+  .login-heading {
+    font-size: 14px;
+  }
+
+  .icons {
+    width: 100%;
+  }
+
+  .login-img {
+    width: 400px;
+    height: 550px;
+    object-fit: contain;
+    position: absolute;
+    top: 10px;
+    right: -90px;
+  }
+
+  .paragraphR {
+    font-family: Poppins;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 46px;
+    text-align: left;
+    color: #ffffff;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    width: 184px;
+  }
+
+  .thunder {
+    background-color: #fff;
+    border-radius: 50%;
+    height: 79px;
+    width: 79px;
+    position: absolute;
+    top: 70%;
+    left: -45px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 30px;
+    margin: auto;
+  }
+
+  .login-dataInput {
+    width: 80%;
+    height: auto;
+  }
+
+  .login-input {
+    width: 100%;
+  }
+
+  .LoginHeading {
+    font-size: 20px;
+  }
+
+  .accessProducts {
+    font-size: 12px;
+    padding-left: 5px;
+  }
+
+  .submit-btn {
+    width: 90px;
+    height: 40px;
+    font-size: 8px;
+  }
+
+  .paragraphL {
+    font-size: 12px;
+  }
+
+  .login-heading {
+    font-size: 12px;
+  }
+
+  .icons {
+    width: 100%;
+  }
+
+  .login-img {
+    width: 400px;
+    height: 550px;
+    object-fit: contain;
+    position: absolute;
+    top: 10px;
+    right: -90px;
+  }
+
+  .paragraphR {
+    font-family: Poppins;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 46px;
+    text-align: left;
+    color: #ffffff;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    width: 184px;
+  }
+
+  .thunder {
+    background-color: #fff;
+    border-radius: 50%;
+    height: 79px;
+    width: 79px;
+    position: absolute;
+    top: 70%;
+    left: -38px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    grid-template-columns: 1fr;
+    height: auto;
+    margin: auto;
+    gap: 30px;
+  }
+  .login-dataInput {
+    width: 70%;
+  }
+
+  .login-input {
+    width: 100%;
+  }
+
+  .LoginHeading {
+    font-size: 18px;
+  }
+
+  .accessProducts {
+    font-size: 10px;
+    padding-left: 0;
+  }
+
+  .submit-btn {
+    width: 80px;
+    height: 36px;
+    font-size: 8px;
+  }
+
+  .paragraphL {
+    font-size: 10px;
+  }
+
+  .login-heading {
+    font-size: 10px;
+  }
+
+  .icons {
+    width: 100%;
+  }
+
+  .login-img {
+    width: 400px;
+    height: 550px;
+    object-fit: contain;
+    position: absolute;
+    top: 10px;
+    right: -90px;
+  }
+
+  .paragraphR {
+    font-family: Poppins;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 46px;
+    text-align: left;
+    color: #ffffff;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    width: 184px;
+  }
+
+  .thunder {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 70%;
+    left: -20px;
+  }
 }

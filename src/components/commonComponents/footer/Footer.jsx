@@ -11,6 +11,7 @@ import QrCode from "../../../assets/images/Qr Code.png";
 
 const Footer = () => {
   const isUser = JSON.parse(localStorage.getItem("user"));
+
   return isUser?.role === "user" ? (
     <div className="Container">
       <div className="mainDiv">

@@ -14,6 +14,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import ordersReducer from "../features/orders/ordersSlice";
 
 const persistConfig = {
   key: "root",
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
   products: productReducer,
   ratings: ratingReducer,
   cart: addtoCartReducer,
+  orders: ordersReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -7,8 +7,6 @@ const Pagination = ({
   nextPage,
   canNextPage,
   gotoPage,
-  pageSize,
-  setPageSize,
   pageIndex,
 }) => {
   const [currentPageIndex, setCurrentPageIndex] = useState(pageIndex);
@@ -35,22 +33,6 @@ const Pagination = ({
       <button onClick={nextPage} disabled={!canNextPage}>
         {">"}
       </button>
-      <span>
-        Page{" "}
-        <strong>
-          {currentPageIndex + 1} of {pageOptions.length}
-        </strong>
-      </span>
-      <select
-        value={pageSize}
-        onChange={(e) => setPageSize(Number(e.target.value))}
-      >
-        {[5, 10, 20].map((size) => (
-          <option key={size} value={size}>
-            Show {size}
-          </option>
-        ))}
-      </select>
     </div>
   );
 };

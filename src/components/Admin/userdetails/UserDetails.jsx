@@ -1,31 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { usersDetails } from "../../../utlis/users";
 import { userOrders } from "../../../utlis/userOrders";
 import "./UserDetails.css";
 import StatusButton from "./StatusButton";
 import Page404 from "../../../pages/Page404/Page404";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setOrders,
+  updateOrderStatus,
+} from "../../../features/orders/ordersSlice";
 
 const UserDetails = () => {
   const { userId } = useParams();
   const user = usersDetails.find((user) => user.userId === userId);
-  const [orders, setOrders] = useState(
-    userOrders.filter((order) => order.userId === userId)
-  );
+  const allOrders = useSelector((state) => state.orders);
+  const dispatch = useDispatch();
 
-  const handleStatusChange = (orderId, status) => {
-    const filteredOrders = orders.map((order) => {
-      if (order.orderId === orderId) {
-        return {
-          ...order,
-          status,
-        };
-      } else {
-        return order;
-      }
-    });
-    setOrders(filteredOrders);
-  };
+  const orders = allOrders.filter((order) => order.userId === userId);
 
   if (!user) return <Page404 />;
 
@@ -118,9 +110,11 @@ const UserDetails = () => {
               {order.status === "Pending" && (
                 <StatusButton
                   onClick={() =>
-                    handleStatusChange(
-                      order.orderId,
-                      getNextStatus(order.status)
+                    dispatch(
+                      updateOrderStatus({
+                        orderId: order.orderId,
+                        status: getNextStatus(order.status),
+                      })
                     )
                   }
                   status="order processed"
@@ -130,24 +124,28 @@ const UserDetails = () => {
               {order.status === "Processing" && (
                 <StatusButton
                   onClick={() =>
-                    handleStatusChange(
-                      order.orderId,
-                      getNextStatus(order.status)
+                    dispatch(
+                      updateOrderStatus({
+                        orderId: order.orderId,
+                        status: getNextStatus(order.status),
+                      })
                     )
                   }
-                  status="ready to shiped"
+                  status="ready to ship"
                   className="actions-button readytoShip"
                 />
               )}
               {order.status === "Shipped" && (
                 <StatusButton
                   onClick={() =>
-                    handleStatusChange(
-                      order.orderId,
-                      getNextStatus(order.status)
+                    dispatch(
+                      updateOrderStatus({
+                        orderId: order.orderId,
+                        status: getNextStatus(order.status),
+                      })
                     )
                   }
-                  status="ready to deliverd"
+                  status="ready to deliver"
                   className="actions-button delivered"
                 />
               )}

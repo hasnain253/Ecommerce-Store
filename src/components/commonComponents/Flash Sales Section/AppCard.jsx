@@ -124,31 +124,15 @@ const AppCard = ({
                 )}
               </div>
               {isRating && (
-                <div className="stars">
+                <di className="stars">
                   <StarRating
                     initialRating={item.rating || 0}
                     onRatingChange={(rating) =>
                       handleRatingChange(item.id, rating)
                     }
                   />
-                </div>
+                </di>
               )}
-              <div className="radio-button">
-                {item.radio && (
-                  <span>
-                    <input
-                      className="colors"
-                      type="radio"
-                      name="colored-input"
-                    />{" "}
-                    <input
-                      className="filledColor"
-                      type="radio"
-                      name="constant"
-                    />
-                  </span>
-                )}
-              </div>
             </div>
           </div>
         ))}

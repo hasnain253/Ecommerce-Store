@@ -28,12 +28,10 @@ function App() {
 
   return (
     <Routes>
-      {/* Public routes */}
       <Route element={<AuthLayout />}>
         <Route path="/" element={<LoginPage />} />
       </Route>
 
-      {/* Protected routes */}
       <Route element={<DefaultLayout />}>
         <Route
           path="/home"
@@ -65,7 +63,6 @@ function App() {
           element={<PrivateRoute element={<Page404 />} />}
         />
 
-        {/* Admin routes */}
         <Route
           path="/admin-dashboard/orders"
           element={<AdminRoute element={<AdminDashboard />} />}
